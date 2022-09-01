@@ -4,12 +4,12 @@ import userPic from "../Assets/userPic.jpg";
 import Avatar from "../Components/Avatar";
 import IconBtn from "../Components/IconBtn";
 import imageToBase64 from "image-to-base64/browser";
+import imageCompression from "browser-image-compression";
 
 export function MessengerSidebar({
   createRoom,
   newRoomName,
   setNewRoomName,
-  imageCompression,
   handleRoomCreation,
   setCreateRoom,
   searchQuesryRooms,
@@ -150,6 +150,11 @@ export function MessengerSidebar({
                   setRoomName(room.name);
                   setRoomSelected(true);
                   setRoomImage(room.roomImage);
+                  setTimeout(() => {
+                    document
+                      .getElementById("messanger__chat__box__main__footer")
+                      .scrollIntoView();
+                  }, 500);
                 }}
               />
               <div className="messanger__sidebar__room__content">

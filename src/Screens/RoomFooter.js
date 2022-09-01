@@ -68,6 +68,7 @@ export function RoomFooter({
         style={{
           marginRight: "0em",
         }}
+        onSubmit={handleMessageCreation}
       >
         <input
           value={newMessage}
@@ -83,7 +84,6 @@ export function RoomFooter({
             display: "none",
           }}
           type="submit"
-          onClick={handleMessageCreation}
         >
           Send Message
         </button>

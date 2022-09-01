@@ -1,12 +1,27 @@
 import React, { useState, useEffect } from "react";
-import imageCompression from "browser-image-compression";
 import { MessengerSidebar } from "./MessengerSidebar";
 import { NoRoomSelected } from "./NoRoomSelected";
 import { RoomFooter } from "./RoomFooter";
 import { RoomMain } from "./RoomMain";
 import { RoomHeader } from "./RoomHeader";
+import useSWR from "swr";
+import { fetcher } from "../utils/fetcher";
 
-export default function Messsanger({ messages, rooms, axios, userName }) {
+export default function Messsanger({ axios, userName }) {
+  const { data: rooms, mutate: roomsMutate } = useSWR(
+    "https://mehfoozurrehman-chat.herokuapp.com/v1/findAllRooms",
+    fetcher,
+    {
+      suspense: true,
+    }
+  );
+  const { data: messages, mutate: messagesMutate } = useSWR(
+    "https://mehfoozurrehman-chat.herokuapp.com/v1/findAllMessages",
+    fetcher,
+    {
+      suspense: true,
+    }
+  );
   const [roomName, setRoomName] = useState("");
   const [newRoomName, setNewRoomName] = useState("");
   const [newRoomImage, setNewRoomImage] = useState("");
@@ -60,21 +75,37 @@ export default function Messsanger({ messages, rooms, axios, userName }) {
   }, [isTimerActive, counter]);
 
   function handleRoomCreation() {
-    axios.post("/v1/createRoom", {
-      name: newRoomName,
-      roomImage: newRoomImage,
-      date: timeString,
-      lastMessage: "lastMessage",
-    });
+    axios
+      .post("/v1/createRoom", {
+        name: newRoomName,
+        roomImage: newRoomImage,
+        date: timeString,
+        lastMessage: "lastMessage",
+      })
+      .then(() => {
+        roomsMutate();
+      });
   }
 
-  function handleMessageCreation() {
-    axios.post("/v1/createMessage", {
-      message: newMessage,
-      timestamp: timeString,
-      user: userName,
-      room: roomName,
-    });
+  function handleMessageCreation(e) {
+    e.preventDefault();
+    axios
+      .post("/v1/createMessage", {
+        message: newMessage,
+        timestamp: timeString,
+        user: userName,
+        room: roomName,
+      })
+      .then(() => {
+        messagesMutate();
+      })
+      .then(() => {
+        setTimeout(() => {
+          document
+            .getElementById("messanger__chat__box__main__footer")
+            .scrollIntoView();
+        }, 500);
+      });
   }
 
   return (
@@ -84,7 +115,6 @@ export default function Messsanger({ messages, rooms, axios, userName }) {
         newRoomName={newRoomName}
         setNewRoomName={setNewRoomName}
         options={options}
-        imageCompression={imageCompression}
         handleRoomCreation={handleRoomCreation}
         setCreateRoom={setCreateRoom}
         searchQuesryRooms={searchQuesryRooms}

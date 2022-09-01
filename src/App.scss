@@ -10,6 +10,7 @@
 *::after,
 *::before {
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 body {
   margin: 0;
@@ -290,6 +291,7 @@ body {
   padding: 1em;
   overflow: auto;
   scroll-snap-align: bottom;
+  padding-bottom: 0em;
 }
 .messanger__chat__box__main::-webkit-scrollbar {
   width: 12px;

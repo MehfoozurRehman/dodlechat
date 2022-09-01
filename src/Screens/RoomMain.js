@@ -36,6 +36,10 @@ export function RoomMain({
             </div>
           </div>
         ))}
+      <div
+        className="messanger__chat__box__main__footer"
+        id="messanger__chat__box__main__footer"
+      />
     </div>
   );
 }
