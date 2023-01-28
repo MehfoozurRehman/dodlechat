@@ -1,10 +1,10 @@
-import React from "react";
-import { Menu, MessageSquare, Search, X, Image } from "react-feather";
-import userPic from "../Assets/userPic.jpg";
+import { Image, Menu, MessageSquare, Search, X } from "react-feather";
+
 import Avatar from "../Components/Avatar";
 import IconBtn from "../Components/IconBtn";
-import imageToBase64 from "image-to-base64/browser";
 import imageCompression from "browser-image-compression";
+import imageToBase64 from "image-to-base64/browser";
+import userPic from "../Assets/userPic.jpg";
 
 export function MessengerSidebar({
   createRoom,

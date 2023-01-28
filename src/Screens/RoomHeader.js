@@ -1,5 +1,5 @@
-import React from "react";
 import { Menu, Search, X } from "react-feather";
+
 import Avatar from "../Components/Avatar";
 import IconBtn from "../Components/IconBtn";
 

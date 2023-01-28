@@ -1,5 +1,3 @@
-import React from "react";
-
 export function NoRoomSelected() {
   return (
     <div className="messanger__chat__box__not__selected">

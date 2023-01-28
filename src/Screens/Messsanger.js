@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+
 import { MessengerSidebar } from "./MessengerSidebar";
 import { NoRoomSelected } from "./NoRoomSelected";
 import { RoomFooter } from "./RoomFooter";
-import { RoomMain } from "./RoomMain";
 import { RoomHeader } from "./RoomHeader";
-import useSWR from "swr";
+import { RoomMain } from "./RoomMain";
 import { fetcher } from "../utils/fetcher";
+import useSWR from "swr";
 
 export default function Messsanger({ axios, userName }) {
   const { data: rooms, mutate: roomsMutate } = useSWR(

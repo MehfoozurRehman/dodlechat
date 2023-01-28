@@ -1,8 +1,9 @@
-import React from "react";
-import { X, Mic, Paperclip, Smile, Check, PlayCircle } from "react-feather";
+import { Check, Mic, Paperclip, PlayCircle, Smile, X } from "react-feather";
+
 import IconBtn from "../Components/IconBtn";
+import Picker from "@emoji-mart/react";
 import SpeechRecognition from "react-speech-recognition";
-import { Picker } from "emoji-mart";
+import data from "@emoji-mart/data";
 
 export function RoomFooter({
   openEmojiPicker,
@@ -48,10 +49,11 @@ export function RoomFooter({
         {openEmojiPicker ? (
           <div className="emoji__picker">
             <Picker
+              data={data}
               theme="dark"
               autoFocus={true}
               color="#056162"
-              onSelect={(e) => {
+              onEmojiSelect={(e) => {
                 setNewMessage(newMessage + e.native);
               }}
             />

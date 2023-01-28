@@ -1,10 +1,12 @@
-import React, { Suspense, useEffect, useState } from "react";
 import "./App.scss";
+
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import { Suspense, useEffect, useState } from "react";
+
 import Auth from "./Components/Auth";
-import Messanger from "./Screens/Messsanger";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import axios from "./axios";
 import { Loading } from "./Loading";
+import Messanger from "./Screens/Messsanger";
+import axios from "./axios";
 
 function App() {
   const [userName, setUserName] = useState("");
@@ -12,18 +14,16 @@ function App() {
     setUserName(localStorage.getItem("user"));
   }, []);
 
-  console.log(userName);
   return (
     <Suspense fallback={<Loading />}>
       <Router>
-        <Switch>
-          <Route path="/" exact>
-            <Auth setUserName={setUserName} />
-          </Route>
-          <Route path="/dashboard">
-            <Messanger axios={axios} userName={userName} />
-          </Route>
-        </Switch>
+        <Routes>
+          <Route path="/" element={<Auth setUserName={setUserName} />} />
+          <Route
+            path="/dashboard"
+            element={<Messanger axios={axios} userName={userName} />}
+          />
+        </Routes>
       </Router>
     </Suspense>
   );

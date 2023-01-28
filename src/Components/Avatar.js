@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function Avatar({ userPic }) {
   return (
     <button className="messanger__sidebar__header__avatar">

@@ -1,16 +1,15 @@
-import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 export default function Auth({ setUserName }) {
-  const history = useHistory();
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   function handleSubmit(e) {
     e.preventDefault();
     setUserName(email);
     localStorage.setItem("user", email);
-    history.push("/dashboard");
+    navigate("/dashboard");
   }
-  console.log(email);
   return (
     <form className="messanger__sign__form" onSubmit={handleSubmit}>
       <div className="messanger__sign__form__heading">Lets get started</div>
