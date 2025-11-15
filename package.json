@@ -3,19 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@emoji-mart/data": "^1.1.2",
+    "@emoji-mart/data": "^1.2.1",
     "@emoji-mart/react": "^1.1.1",
-    "axios": "^1.2.5",
-    "browser-image-compression": "^2.0.0",
-    "emoji-mart": "^5.5.2",
+    "axios": "^1.13.2",
+    "browser-image-compression": "^2.0.2",
+    "emoji-mart": "^5.6.0",
     "image-to-base64": "^2.2.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "react-feather": "^2.0.10",
-    "react-router-dom": "^6.8.0",
+    "react-router-dom": "^6.30.2",
     "react-scripts": "5.0.1",
     "react-speech-recognition": "^3.10.0",
-    "swr": "^2.0.2"
+    "swr": "^2.3.6"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -42,9 +42,9 @@
     ]
   },
   "devDependencies": {
-    "@babel/helper-environment-visitor": "^7.18.9",
-    "@babel/helper-string-parser": "^7.19.4",
+    "@babel/helper-environment-visitor": "^7.24.7",
+    "@babel/helper-string-parser": "^7.27.1",
     "react-compress": "^3.6.4",
-    "sass": "^1.57.1"
+    "sass": "^1.94.0"
   }
 }
