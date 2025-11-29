@@ -15,7 +15,7 @@
     "react-router-dom": "^6.30.2",
     "react-scripts": "5.0.1",
     "react-speech-recognition": "^3.10.0",
-    "swr": "^2.3.6"
+    "swr": "^2.3.7"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -45,6 +45,6 @@
     "@babel/helper-environment-visitor": "^7.24.7",
     "@babel/helper-string-parser": "^7.27.1",
     "react-compress": "^3.6.4",
-    "sass": "^1.94.1"
+    "sass": "^1.94.2"
   }
 }
