@@ -12,7 +12,7 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-feather": "^2.0.10",
-    "react-router-dom": "^6.30.2",
+    "react-router-dom": "^6.30.3",
     "react-scripts": "5.0.1",
     "react-speech-recognition": "^3.10.0",
     "swr": "^2.3.8"
@@ -45,6 +45,6 @@
     "@babel/helper-environment-visitor": "^7.24.7",
     "@babel/helper-string-parser": "^7.27.1",
     "react-compress": "^3.6.4",
-    "sass": "^1.97.1"
+    "sass": "^1.97.2"
   }
 }
